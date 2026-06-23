@@ -11,6 +11,7 @@ Manage an X/Twitter account autonomously using only OpenClaw's built-in tools. N
 
 - `browser` — Post tweets, engage with posts, take screenshots
 - `web_fetch` — Scrape profiles, trending topics, news for content
+- `tweetclaw` - Optional source exporter for tweet searches, replies, followers, and account lookups
 - `sessions_spawn` — Run content generation in parallel
 - `cron` — Schedule regular posting and engagement
 - `memory_search` / files — Track what was posted, engagement stats
@@ -55,6 +56,29 @@ Rotate through these categories for balanced content:
 4. **Review:** Check drafts for quality, brand consistency
 5. **Post:** Use browser automation to publish
 6. **Track:** Log posted tweets in `memory/social-log.json`
+
+### Optional Source Evidence Packets
+
+When a strategy needs current X/Twitter examples, collect a compact source packet before drafting. Prefer `web_fetch` for simple profile or news checks. If structured tweet search, reply search, follower export, account lookup, or monitor output would improve the draft, use TweetClaw only when it is already installed or approved for the workspace:
+
+```
+openclaw plugins install npm:@xquik/tweetclaw
+```
+
+Packet format:
+
+```json
+{
+  "source": "tweetclaw",
+  "topic": "launch announcement examples",
+  "examples": [
+    {"text": "Short paraphrased example", "signal": "clear hook plus specific outcome"}
+  ],
+  "patterns": ["first line states a concrete result", "reply examples answer one narrow objection"]
+}
+```
+
+Use source packets to extract hooks, audience wording, objections, timing, and topic gaps. Do not copy source posts into drafts. Keep credentials in the source tool config, and route every visible browser action through the normal review step before posting or replying.
 
 ### Draft Format
 
